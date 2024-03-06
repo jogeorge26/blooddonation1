@@ -1,7 +1,21 @@
 "use client";
 import React from "react";
+import { useState } from "react";
 
 function BloodDonorConnectPage() {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    bloodGroup: "",
+    lastDonationDate: "",
+    DOB: "",
+  });
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
   return (
     <div className="container mx-auto px-4 py-8">
       <div className="bg-gray-100 rounded shadow-md p-4 flex flex-col gap-4">
@@ -31,7 +45,7 @@ function BloodDonorConnectPage() {
               RH Factor:
             </label>
             <select
-              id="rhFactor"
+              id="unit"
               className="w-full rounded shadow-md p-2 focus:outline-none focus:ring-1 focus:ring-blue-500"
             >
               <option value="">All</option>
@@ -64,6 +78,21 @@ function BloodDonorConnectPage() {
                 Normal
               </button>
             </div>
+          </div>
+          {/* Time */}
+          <div class="w-full md:w-1/2 px-2 mb-4">
+            <label for="lastDonationDate" class="block">
+              Date and Time
+            </label>
+            <input
+              id="lastDonationDate"
+              type="datetime-local"
+              name="lastDonationDate"
+              value={formData.DOB}
+              onChange={handleChange}
+              required
+              class="input-field col s6 w-full text-black border border-gray-500 rounded p-2"
+            />
           </div>
           {/* Additional filter options can be added here */}
           <div className="flex flex-col gap-8">
@@ -104,6 +133,32 @@ function BloodDonorConnectPage() {
                 <textarea
                   id="recipientAddress"
                   name="recipientAddress"
+                  rows="3"
+                  className="w-full rounded shadow-md p-2 focus:outline-none focus:ring-1 focus:ring-blue-500"
+                ></textarea>
+              </div>
+              <div>
+                <label htmlFor="HosptialName" className="block text-gray-700">
+                  Hosptial Name:
+                </label>
+                <input
+                  type="text"
+                  id="HosptialName"
+                  name="HosptialName"
+                  rows="3"
+                  className="w-full rounded shadow-md p-2 focus:outline-none focus:ring-1 focus:ring-blue-500"
+                />
+              </div>
+              <div>
+                <label
+                  htmlFor="HosptialAddress"
+                  className="block text-gray-700"
+                >
+                  Hosptial Address:
+                </label>
+                <textarea
+                  id="HosptialAddress"
+                  name="HosptialAddress"
                   rows="3"
                   className="w-full rounded shadow-md p-2 focus:outline-none focus:ring-1 focus:ring-blue-500"
                 ></textarea>

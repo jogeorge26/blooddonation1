@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 import React, { useState } from "react";
 
 function LoginPage() {
@@ -49,12 +50,14 @@ function LoginPage() {
               required
             />
           </div>
-          <button
-            type="submit"
+          <Link
+            href="/profile"
+          
+            // type="submit"
             className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded shadow-md"
           >
             Login
-          </button>
+          </Link>
         </form>
       </div>
     </div>

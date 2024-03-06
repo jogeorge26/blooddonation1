@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Footer2 from "./ui/footer";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -16,9 +17,11 @@ export default function Home() {
                 area and connect with those in need.
               </p>
               <div className="flex justify-center md:justify-start mt-8">
-                <button className="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded shadow-md">
+                <Link
+                 href="/register"
+                 className="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded shadow-md">
                   Register now
-                </button>
+                </Link>
               </div>
             </div>
             <div className="w-full md:w-1/2">
